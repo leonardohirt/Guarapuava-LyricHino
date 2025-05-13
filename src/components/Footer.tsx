@@ -71,8 +71,8 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li className="flex items-center">
                 <Mail size={16} className="mr-2" />
-                <a href="mailto:contato@hinodeguarapuava.com.br" className="text-emerald-100 hover:text-white transition-colors">
-                  contato@hinodeguarapuava.com.br
+                <a href="mailto:leonardohirt73@gmail.com" className="text-emerald-100 hover:text-white transition-colors">
+                  leonardohirt73@gmail.com
                 </a>
               </li>
               <li className="flex items-center">
