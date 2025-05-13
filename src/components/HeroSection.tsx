@@ -8,7 +8,7 @@ const HeroSection: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center z-0" 
         style={{ 
-          backgroundImage: "url('https://www.viajeparana.com/sites/viaje-parana/arquivos_restritos/files/imagem/2019-03/parque_do_lago_07.jpg')",
+          backgroundImage: "url('https://hotelkuster.com.br/wp-content/uploads/2022/06/Catedral-Nossa-Senhora-de-Belem-Guarapuava-PR.jpg')",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover"
