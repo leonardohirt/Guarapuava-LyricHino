@@ -65,7 +65,7 @@ const HistorySection: React.FC = () => {
           <div>
             <div className="rounded-xl overflow-hidden shadow-lg mb-8">
               <img 
-                src="https://images.pexels.com/photos/4254555/pexels-photo-4254555.jpeg" 
+                src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fhotelkuster.com.br%2F10-pontos-turisticos-para-conhecer-em-guarapuava%2F&psig=AOvVaw2QdAQ1GYgiy_23Lkljc8U_&ust=1747193900866000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMDj89HCn40DFQAAAAAdAAAAABAL" 
                 alt="Vista histórica de Guarapuava" 
                 className="w-full h-64 md:h-80 object-cover"
               />
