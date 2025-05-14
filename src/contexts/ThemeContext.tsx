@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
-type Theme = 'light' | 'dark';
+type Theme = 'dark';
 
 interface ThemeContextType {
   theme: Theme;
@@ -22,15 +22,15 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme] = useState<Theme>('dark');
 
   const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+    // Theme is always dark, so this is now a no-op
   };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className={theme === 'dark' ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'}>
+      <div className="bg-gray-900 text-white">
         {children}
       </div>
     </ThemeContext.Provider>

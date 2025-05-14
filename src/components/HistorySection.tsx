@@ -3,21 +3,21 @@ import { Calendar, Users, Award, MapPin } from 'lucide-react';
 
 const HistorySection: React.FC = () => {
   return (
-    <section id="history" className="py-20 bg-white dark:bg-gray-800">
+    <section id="history" className="py-20 bg-gray-800">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-emerald-800 dark:text-emerald-300">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-emerald-300">
             História do Hino
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-300 max-w-2xl mx-auto">
             Conheça a origem, o significado e o contexto histórico do hino de Guarapuava
           </p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="prose prose-emerald max-w-none dark:prose-invert">
-              <h3 className="text-2xl font-bold text-emerald-700 dark:text-emerald-400 mb-4">
+            <div className="prose prose-emerald max-w-none prose-invert">
+              <h3 className="text-2xl font-bold text-emerald-400 mb-4">
                 O Hino e seu Significado
               </h3>
               
@@ -37,7 +37,7 @@ const HistorySection: React.FC = () => {
                 Ao ser cantado, o hino reforça valores como o amor à terra natal, a preservação das tradições e a esperança em um futuro promissor para o município.
               </p>
               
-              <h3 className="text-xl font-bold text-emerald-700 dark:text-emerald-400 mt-8 mb-4">
+              <h3 className="text-xl font-bold text-emerald-400 mt-8 mb-4">
                 Contextualização Histórica
               </h3>
               
@@ -53,13 +53,13 @@ const HistorySection: React.FC = () => {
             <div className="mt-8 grid grid-cols-2 gap-4">
               <a 
                 href="#"
-                className="flex items-center justify-center bg-emerald-100 hover:bg-emerald-200 text-emerald-800 dark:bg-emerald-900 dark:hover:bg-emerald-800 dark:text-emerald-100 py-3 px-4 rounded-lg transition-colors"
+                className="flex items-center justify-center bg-emerald-900 hover:bg-emerald-800 text-emerald-100 py-3 px-4 rounded-lg transition-colors"
               >
                 <span>Linha do Tempo Completa</span>
               </a>
               <a 
                 href="#"
-                className="flex items-center justify-center bg-emerald-100 hover:bg-emerald-200 text-emerald-800 dark:bg-emerald-900 dark:hover:bg-emerald-800 dark:text-emerald-100 py-3 px-4 rounded-lg transition-colors"
+                className="flex items-center justify-center bg-emerald-900 hover:bg-emerald-800 text-emerald-100 py-3 px-4 rounded-lg transition-colors"
               >
                 <span>Documentação Histórica</span>
               </a>
@@ -76,42 +76,42 @@ const HistorySection: React.FC = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-emerald-50 dark:bg-gray-700 p-5 rounded-xl">
-                <div className="text-emerald-600 dark:text-emerald-300 mb-3">
+              <div className="bg-gray-700 p-5 rounded-xl">
+                <div className="text-emerald-300 mb-3">
                   <Calendar size={28} />
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Criação do Hino</h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  O hino foi oficialmente adotado por lei municipal, tornando-se um dos símbolos oficiais da cidade.
+                <h4 className="text-lg font-semibold mb-2 text-white">Criação do Hino</h4>
+                <p className="text-gray-300 text-sm">
+                  O hino foi oficialmente adotado em 1978 através da Lei Municipal nº 58/78, tornando-se um dos símbolos oficiais da cidade.
                 </p>
               </div>
               
-              <div className="bg-emerald-50 dark:bg-gray-700 p-5 rounded-xl">
-                <div className="text-emerald-600 dark:text-emerald-300 mb-3">
+              <div className="bg-gray-700 p-5 rounded-xl">
+                <div className="text-emerald-300 mb-3">
                   <Users size={28} />
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Compositores</h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  Letra por José Telles de Vasconcellos e música por Júlio César Ribeiro de Souza.
+                <h4 className="text-lg font-semibold mb-2 text-white">Compositores</h4>
+                <p className="text-gray-300 text-sm">
+                  Letra por José Telles de Vasconcellos e música por Júlio César Ribeiro de Souza, ambos cidadãos ilustres de Guarapuava.
                 </p>
               </div>
               
-              <div className="bg-emerald-50 dark:bg-gray-700 p-5 rounded-xl">
-                <div className="text-emerald-600 dark:text-emerald-300 mb-3">
+              <div className="bg-gray-700 p-5 rounded-xl">
+                <div className="text-emerald-300 mb-3">
                   <Award size={28} />
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Reconhecimento</h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <h4 className="text-lg font-semibold mb-2 text-white">Reconhecimento</h4>
+                <p className="text-gray-300 text-sm">
                   O hino é executado em todas as cerimônias oficiais e eventos cívicos importantes da cidade.
                 </p>
               </div>
               
-              <div className="bg-emerald-50 dark:bg-gray-700 p-5 rounded-xl">
-                <div className="text-emerald-600 dark:text-emerald-300 mb-3">
+              <div className="bg-gray-700 p-5 rounded-xl">
+                <div className="text-emerald-300 mb-3">
                   <MapPin size={28} />
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Localização</h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <h4 className="text-lg font-semibold mb-2 text-white">Localização</h4>
+                <p className="text-gray-300 text-sm">
                   Guarapuava está localizada na região centro-sul do Paraná, sendo a cidade mais populosa do centro do estado.
                 </p>
               </div>

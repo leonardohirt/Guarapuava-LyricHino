@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -58,15 +57,6 @@ const Header: React.FC = () => {
                   </a>
                 </li>
               ))}
-              <li>
-                <button
-                  onClick={toggleTheme}
-                  className="text-white hover:text-yellow-200 transition-colors"
-                  aria-label={theme === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro'}
-                >
-                  {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-                </button>
-              </li>
             </ul>
           </nav>
 
@@ -95,22 +85,10 @@ const Header: React.FC = () => {
                   </a>
                 </li>
               ))}
-              <li>
-                <button
-                  onClick={toggleTheme}
-                  className="text-white hover:text-yellow-200 transition-colors flex items-center py-1"
-                  aria-label={theme === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro'}
-                >
-                  {theme === 'dark' ? <Sun size={20} className="mr-2" /> : <Moon size={20} className="mr-2" />}
-                  {theme === 'dark' ? 'Modo Claro' : 'Modo Escuro'}
-                </button>
-              </li>
             </ul>
           </nav>
         )}
       </div>
     </header>
   );
-};
-
-export default Header;
+}
