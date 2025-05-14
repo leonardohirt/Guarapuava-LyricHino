@@ -22,11 +22,19 @@ const HistorySection: React.FC = () => {
               </h3>
               
               <p>
-                O hino de Guarapuava foi criado para celebrar a rica história e as características marcantes desta importante cidade do Paraná. Composto em [ANO] por [COMPOSITOR], com letra de [LETRISTA], o hino rapidamente se tornou um símbolo de orgulho para os guarapuavanos.
+                O Hino de Guarapuava foi criado como uma forma de exaltar o orgulho, a identidade e a história do povo guarapuavano. Ele destaca as riquezas naturais da região, as tradições culturais e o espírito de luta e progresso que marcam a trajetória da cidade desde sua fundação.
               </p>
               
               <p>
-                Cada verso do hino representa aspectos importantes da cidade e de sua identidade cultural. As referências à natureza exuberante, ao clima característico, à história de ocupação do território e às tradições locais são elementos que permeiam a composição.
+                A letra do hino foi escrita por José Telles de Vasconcellos, e a música composta por Júlio César Ribeiro de Souza. Foi oficializado por lei municipal, tornando-se um símbolo oficial da cidade ao lado do brasão e da bandeira.
+              </p>
+              
+              <p>
+                O hino é frequentemente executado em cerimônias cívicas, escolas e eventos públicos, despertando o sentimento de pertencimento entre os moradores e fortalecendo os laços com a história local. Seus versos homenageiam tanto a beleza natural da região quanto o esforço das gerações que contribuíram para o desenvolvimento de Guarapuava.
+              </p>
+              
+              <p>
+                Ao ser cantado, o hino reforça valores como o amor à terra natal, a preservação das tradições e a esperança em um futuro promissor para o município.
               </p>
               
               <h3 className="text-xl font-bold text-emerald-700 dark:text-emerald-400 mt-8 mb-4">
@@ -37,12 +45,8 @@ const HistorySection: React.FC = () => {
                 Guarapuava, cujo nome tem origem no tupi-guarani e significa "lobo bravo", foi fundada oficialmente em 9 de dezembro de 1819. A região, habitada originalmente por povos indígenas, principalmente Kaingang e Guarani, passou por um processo de colonização a partir do século XIX.
               </p>
               
-              <p>
-                O hino reflete esse rico passado, honrando tanto os povos originários quanto os pioneiros que contribuíram para o desenvolvimento da cidade. As menções às características geográficas, como os campos e montanhas, também destacam a beleza natural que sempre foi marca registrada de Guarapuava.
-              </p>
-              
               <blockquote className="italic border-l-4 border-emerald-500 pl-4 my-6">
-                "O hino de Guarapuava é mais que uma composição musical; é um documento histórico que narra a trajetória, os valores e as aspirações de nosso povo." — [Historiador Local]
+                "O hino de Guarapuava é mais que uma composição musical; é um documento histórico que narra a trajetória, os valores e as aspirações de nosso povo."
               </blockquote>
             </div>
             
@@ -78,7 +82,7 @@ const HistorySection: React.FC = () => {
                 </div>
                 <h4 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Criação do Hino</h4>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  O hino foi oficialmente adotado em [ANO], após concurso público realizado pela prefeitura municipal.
+                  O hino foi oficialmente adotado por lei municipal, tornando-se um dos símbolos oficiais da cidade.
                 </p>
               </div>
               
@@ -88,7 +92,7 @@ const HistorySection: React.FC = () => {
                 </div>
                 <h4 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Compositores</h4>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  [NOME DO COMPOSITOR] e [NOME DO LETRISTA] trabalharam juntos para criar esta peça musical emblemática.
+                  Letra por José Telles de Vasconcellos e música por Júlio César Ribeiro de Souza.
                 </p>
               </div>
               
