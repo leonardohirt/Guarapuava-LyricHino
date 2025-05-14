@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +23,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Início', href: '#hero' },
     { name: 'Letra & Música', href: '#lyrics' },
-    { name: 'Para Crianças', href: '#children' },
+    { name: 'Jogo de Palavras', href: '#children' },
     { name: 'História', href: '#history' },
     { name: 'Quiz', href: '#quiz' },
     { name: 'Depoimentos', href: '#testimonials' }
@@ -33,8 +32,9 @@ const Header: React.FC = () => {
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-emerald-700 bg-opacity-95 shadow-md py-2' : 'bg-transparent py-4'
+        isScrolled ? 'bg-gray-900 shadow-md py-2' : 'bg-transparent py-4'
       }`}
+      style={{ top: 0 }}
     >
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex justify-between items-center">
@@ -91,6 +91,6 @@ const Header: React.FC = () => {
       </div>
     </header>
   );
-}
+};
 
-export default Header
+export default Header;
