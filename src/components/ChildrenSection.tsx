@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Gamepad2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import { hinoGuarapuavaData } from '../data/hinoData';
 
 const ChildrenSection: React.FC = () => {
@@ -7,10 +6,16 @@ const ChildrenSection: React.FC = () => {
   const [userAnswer, setUserAnswer] = useState('');
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [missingWordIndex, setMissingWordIndex] = useState(0);
   
   const currentVerse = hinoGuarapuavaData.verses[gameProgress];
   const words = currentVerse.text.split(' ');
-  const missingWordIndex = Math.floor(Math.random() * words.length);
+  
+  useEffect(() => {
+    // Set a fixed missing word index when the verse changes
+    setMissingWordIndex(Math.floor(Math.random() * words.length));
+  }, [gameProgress]);
+  
   const missingWord = words[missingWordIndex];
   const displayWords = [...words];
   displayWords[missingWordIndex] = '_____';
