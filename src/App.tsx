@@ -21,12 +21,14 @@ function App() {
     <ThemeProvider>
       <div className={`min-h-screen ${accessibilityMode.highContrast ? 'high-contrast' : ''} 
                       ${accessibilityMode.largeText ? 'large-text' : ''}`}>
-        <AccessibilityBar 
-          settings={accessibilityMode} 
-          onChange={setAccessibilityMode} 
-        />
+        <div className="relative z-50">
+          <AccessibilityBar 
+            settings={accessibilityMode} 
+            onChange={setAccessibilityMode} 
+          />
+        </div>
         <Header />
-        <main>
+        <main className="pt-16">
           <HeroSection />
           <LyricsSection accessibilityMode={accessibilityMode} />
           <ChildrenSection />

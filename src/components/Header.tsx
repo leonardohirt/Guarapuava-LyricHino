@@ -31,10 +31,10 @@ const Header: React.FC = () => {
 
   return (
     <header 
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-40 transition-all duration-300 ${
         isScrolled ? 'bg-gray-900 shadow-md py-2' : 'bg-transparent py-4'
       }`}
-      style={{ top: 0 }}
+      style={{ top: '32px' }}
     >
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex justify-between items-center">
