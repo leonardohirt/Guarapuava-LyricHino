@@ -178,7 +178,8 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
                   <span>Baixar MP3</span>
                 </a>
                 <a 
-                  href="#" 
+                  href="/hino-guarapuava.pdf" 
+                  download="hino-guarapuava.pdf"
                   className="flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
                 >
                   <Download size={16} className="mr-2" />
