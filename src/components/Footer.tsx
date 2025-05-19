@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Mail, Globe } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Mail, Globe, Download } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -55,7 +55,14 @@ const Footer: React.FC = () => {
                 <a href="#" className="text-emerald-100 hover:text-white transition-colors">Download MP3</a>
               </li>
               <li>
-                <a href="#" className="text-emerald-100 hover:text-white transition-colors">Letra (PDF)</a>
+                <a 
+                  href="/hino-guarapuava.pdf" 
+                  download="hino-guarapuava.pdf"
+                  className="text-emerald-100 hover:text-white transition-colors flex items-center"
+                >
+                  <Download size={16} className="mr-2" />
+                  Letra (PDF)
+                </a>
               </li>
               <li>
                 <a href="#" className="text-emerald-100 hover:text-white transition-colors">Partitura</a>
