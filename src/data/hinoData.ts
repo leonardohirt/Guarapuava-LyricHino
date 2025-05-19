@@ -22,8 +22,8 @@ interface HinoData {
 
 export const hinoGuarapuavaData: HinoData = {
   title: "Hino de Guarapuava",
-  composer: "Compositor", // To be updated with actual composer name
-  lyricist: "Letrista", // To be updated with actual lyricist name
+  composer: "Luiz Eulógio Zilli",
+  lyricist: "Gilda P. Todeschini",
   year: "XXXX", // To be updated with actual year
   audioUrl: "https://www.youtube.com/watch?v=S5LxOCu5TJY",
   verses: [
