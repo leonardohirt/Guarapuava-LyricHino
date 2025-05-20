@@ -14,39 +14,49 @@ const QuizSection: React.FC = () => {
       id: 1,
       text: "Quem compôs a música do Hino de Guarapuava?",
       options: [
-        "Júlio César Ribeiro de Souza",
-        "José Telles de Vasconcellos",
-        "Antônio de Sá Camargo",
+        "Luiz Eulógio Zilli",
+        "Gilda Boscardim Todeschini",
+        "Visconde de Guarapuava",
         "Francisco Peixoto de Lacerda Werneck"
       ],
       correctAnswer: 0
     },
     {
       id: 2,
-      text: "Em que ano o Hino de Guarapuava foi oficializado?",
-      options: ["1950", "1965", "1978", "1990"],
-      correctAnswer: 2
-    },
-    {
-      id: 3,
-      text: "Qual o significado do nome 'Guarapuava' na língua indígena?",
-      options: ["Terra de pinheirais", "Lobo bravo", "Água grande", "Campo limpo"],
+      text: "Quem é a autora da letra do Hino de Guarapuava?",
+      options: [
+        "Maria Helena Zilli",
+        "Gilda Boscardim Todeschini",
+        "Ana Maria Todeschini",
+        "Helena Kolody"
+      ],
       correctAnswer: 1
     },
     {
+      id: 3,
+      text: "Em que ano a família da compositora chegou à cidade de Guarapuava?",
+      options: ["1960", "1962", "1965", "1970"],
+      correctAnswer: 2
+    },
+    {
       id: 4,
-      text: "Através de qual lei municipal o hino foi oficializado?",
-      options: ["Lei nº 45/78", "Lei nº 58/78", "Lei nº 62/78", "Lei nº 71/78"],
+      text: "Onde está exposta a partitura original do Hino de Guarapuava?",
+      options: [
+        "Biblioteca Municipal",
+        "Museu Visconde de Guarapuava",
+        "Prefeitura Municipal",
+        "Casa da Cultura"
+      ],
       correctAnswer: 1
     },
     {
       id: 5,
-      text: "Quem escreveu a letra do Hino de Guarapuava?",
+      text: "Qual elemento NÃO é mencionado na letra do hino como característico da região?",
       options: [
-        "Júlio César Ribeiro de Souza",
-        "Antônio de Sá Camargo",
-        "Francisco Peixoto de Lacerda Werneck",
-        "José Telles de Vasconcellos"
+        "Campo verdejante",
+        "Trigais dourados",
+        "Vaqueiro",
+        "Cachoeiras"
       ],
       correctAnswer: 3
     }
