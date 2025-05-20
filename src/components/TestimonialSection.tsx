@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { Quote, MessageSquarePlus, User, Send } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MessageSquarePlus, User, Send } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 interface Testimonial {
-  id: number;
+  id: string;
   name: string;
   role: string;
   content: string;
-  date: string;
+  created_at: string;
 }
 
 const TestimonialSection: React.FC = () => {
@@ -16,30 +17,28 @@ const TestimonialSection: React.FC = () => {
     role: '',
     content: ''
   });
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
   
-  const testimonials: Testimonial[] = [
-    {
-      id: 1,
-      name: "Maria Silva",
-      role: "Professora",
-      content: "Como professora, utilizo o hino de Guarapuava como ferramenta pedagógica. Ver o brilho nos olhos das crianças quando cantam juntas é emocionante. Este site facilitou muito meu trabalho em sala de aula.",
-      date: "15/03/2025"
-    },
-    {
-      id: 2,
-      name: "João Pereira",
-      role: "Historiador Local",
-      content: "O hino de Guarapuava carrega em suas notas a essência de nossa história. Como historiador, aprecio a forma como esta plataforma preserva e dissemina este importante patrimônio cultural.",
-      date: "02/04/2025"
-    },
-    {
-      id: 3,
-      name: "Ana Rodrigues",
-      role: "Estudante",
-      content: "Graças a este site e aos jogos interativos, consegui aprender o hino completo em apenas uma semana! As explicações sobre o significado de cada verso tornaram tudo mais interessante.",
-      date: "20/04/2025"
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  const fetchTestimonials = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('testimonials')
+        .select('*')
+        .eq('approved', true)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setTestimonials(data || []);
+    } catch (error) {
+      console.error('Error fetching testimonials:', error);
     }
-  ];
+  };
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -49,16 +48,39 @@ const TestimonialSection: React.FC = () => {
     });
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here would go logic to submit the testimonial
-    alert("Obrigado por compartilhar seu depoimento!");
-    setFormData({
-      name: '',
-      role: '',
-      content: ''
-    });
-    setShowForm(false);
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      const { error } = await supabase
+        .from('testimonials')
+        .insert([
+          {
+            name: formData.name,
+            role: formData.role,
+            content: formData.content,
+          }
+        ]);
+
+      if (error) throw error;
+
+      setSubmitMessage({
+        type: 'success',
+        text: 'Obrigado! Seu depoimento foi enviado para aprovação.'
+      });
+      setFormData({ name: '', role: '', content: '' });
+      setTimeout(() => setShowForm(false), 3000);
+    } catch (error) {
+      console.error('Error submitting testimonial:', error);
+      setSubmitMessage({
+        type: 'error',
+        text: 'Ocorreu um erro ao enviar seu depoimento. Por favor, tente novamente.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -77,25 +99,19 @@ const TestimonialSection: React.FC = () => {
           {testimonials.map((testimonial) => (
             <div 
               key={testimonial.id}
-              className="bg-emerald-50 dark:bg-gray-700 rounded-xl p-6 shadow-sm relative"
+              className="bg-emerald-50 dark:bg-gray-700 rounded-xl p-6 shadow-sm"
             >
-              <div className="absolute top-6 right-6 text-emerald-200 dark:text-emerald-800">
-                <Quote size={48} />
-              </div>
-              
-              <div className="mb-6 relative z-10">
+              <div className="mb-6">
                 <p className="italic text-gray-700 dark:text-gray-300">
                   "{testimonial.content}"
                 </p>
               </div>
               
-              <div className="border-t border-emerald-100 dark:border-gray-600 pt-4 flex items-center justify-between">
-                <div>
-                  <h4 className="font-semibold text-gray-800 dark:text-white">{testimonial.name}</h4>
-                  <p className="text-sm text-emerald-600 dark:text-emerald-400">{testimonial.role}</p>
-                </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">
-                  {testimonial.date}
+              <div className="border-t border-emerald-100 dark:border-gray-600 pt-4">
+                <h4 className="font-semibold text-gray-800 dark:text-white">{testimonial.name}</h4>
+                <p className="text-sm text-emerald-600 dark:text-emerald-400">{testimonial.role}</p>
+                <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  {new Date(testimonial.created_at).toLocaleDateString('pt-BR')}
                 </div>
               </div>
             </div>
@@ -173,21 +189,31 @@ const TestimonialSection: React.FC = () => {
                     placeholder="Compartilhe o que o hino de Guarapuava significa para você..."
                   />
                 </div>
+
+                {submitMessage && (
+                  <div className={`mb-4 p-3 rounded-lg ${
+                    submitMessage.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                  }`}>
+                    {submitMessage.text}
+                  </div>
+                )}
                 
                 <div className="flex justify-end space-x-4">
                   <button
                     type="button"
                     onClick={() => setShowForm(false)}
                     className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
+                    disabled={isSubmitting}
                   >
                     Cancelar
                   </button>
                   <button
                     type="submit"
-                    className="flex items-center px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors"
+                    className="flex items-center px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={isSubmitting}
                   >
                     <Send size={16} className="mr-2" />
-                    Enviar
+                    {isSubmitting ? 'Enviando...' : 'Enviar'}
                   </button>
                 </div>
               </form>
