@@ -22,31 +22,19 @@ const HistorySection: React.FC = () => {
               </h3>
               
               <p>
-                O Hino de Guarapuava foi criado como uma forma de exaltar o orgulho, a identidade e a história do povo guarapuavano. Ele destaca as riquezas naturais da região, as tradições culturais e o espírito de luta e progresso que marcam a trajetória da cidade desde sua fundação.
+                O Hino de Guarapuava, oficialmente adotado como hino municipal, é uma celebração poética da natureza exuberante e do desenvolvimento da cidade. Com letra de Gilda Boscardim Todeschini e música de Luiz Eulógio Zilli, o hino começa com a imagem do sol surgindo brilhante, simbolizando um novo começo e um futuro promissor para Guarapuava.
               </p>
               
               <p>
-                A letra do hino foi escrita por José Telles de Vasconcellos, e a música composta por Júlio César Ribeiro de Souza. Foi oficializado por lei municipal, tornando-se um símbolo oficial da cidade ao lado do brasão e da bandeira.
+                A partitura original do hino foi recentemente entregue ao município e está exposta no Museu Visconde de Guarapuava, em um ato simbólico que resgatou e valorizou a história cultural da cidade. A família da compositora chegou à cidade em 1965, estabelecendo um forte vínculo afetivo e histórico com Guarapuava.
               </p>
               
               <p>
-                O hino é frequentemente executado em cerimônias cívicas, escolas e eventos públicos, despertando o sentimento de pertencimento entre os moradores e fortalecendo os laços com a história local. Seus versos homenageiam tanto a beleza natural da região quanto o esforço das gerações que contribuíram para o desenvolvimento de Guarapuava.
-              </p>
-              
-              <p>
-                Ao ser cantado, o hino reforça valores como o amor à terra natal, a preservação das tradições e a esperança em um futuro promissor para o município.
-              </p>
-              
-              <h3 className="text-xl font-bold text-emerald-400 mt-8 mb-4">
-                Contextualização Histórica
-              </h3>
-              
-              <p>
-                Guarapuava, cujo nome tem origem no tupi-guarani e significa "lobo bravo", foi fundada oficialmente em 9 de dezembro de 1819. A região, habitada originalmente por povos indígenas, principalmente Kaingang e Guarani, passou por um processo de colonização a partir do século XIX.
+                O hino exalta elementos característicos da região, como o campo verdejante, os trigais dourados pelo sol e a figura do vaqueiro, símbolo da cultura local. A letra expressa o amor e o orgulho dos guarapuavanos pela cidade, retratando-a como uma "menina radiante" e uma "pérola do Oeste".
               </p>
               
               <blockquote className="italic border-l-4 border-emerald-500 pl-4 my-6">
-                "O hino de Guarapuava é mais que uma composição musical; é um documento histórico que narra a trajetória, os valores e as aspirações de nosso povo."
+                "O hino de Guarapuava é mais que uma composição musical; é um documento histórico que celebra nossa natureza, nossa cultura e nosso povo."
               </blockquote>
             </div>
             
@@ -80,9 +68,9 @@ const HistorySection: React.FC = () => {
                 <div className="text-emerald-300 mb-3">
                   <Calendar size={28} />
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-white">Criação do Hino</h4>
+                <h4 className="text-lg font-semibold mb-2 text-white">Compositores</h4>
                 <p className="text-gray-300 text-sm">
-                  O hino foi oficialmente adotado em 1978 através da Lei Municipal nº 58/78, tornando-se um dos símbolos oficiais da cidade.
+                  Letra por Gilda Boscardim Todeschini e música por Luiz Eulógio Zilli, criadores do hino oficial de Guarapuava.
                 </p>
               </div>
               
@@ -90,9 +78,9 @@ const HistorySection: React.FC = () => {
                 <div className="text-emerald-300 mb-3">
                   <Users size={28} />
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-white">Compositores</h4>
+                <h4 className="text-lg font-semibold mb-2 text-white">Partitura Original</h4>
                 <p className="text-gray-300 text-sm">
-                  Letra por José Telles de Vasconcellos e música por Júlio César Ribeiro de Souza, ambos cidadãos ilustres de Guarapuava.
+                  A partitura original está exposta no Museu Visconde de Guarapuava, preservando a história musical da cidade.
                 </p>
               </div>
               
