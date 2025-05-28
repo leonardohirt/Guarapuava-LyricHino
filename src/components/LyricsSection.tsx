@@ -39,7 +39,6 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
   };
 
   const onPlayerStateChange = (event: any) => {
-    // YouTube player states: -1 (unstarted), 0 (ended), 1 (playing), 2 (paused), 3 (buffering), 5 (video cued)
     setIsPlaying(event.data === 1);
   };
 
@@ -50,7 +49,6 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
         const time = player.getCurrentTime();
         setCurrentTime(time);
         
-        // Update active verse based on current time
         for (let i = 0; i < hinoGuarapuavaData.verses.length; i++) {
           if (
             time >= hinoGuarapuavaData.verses[i].startTime && 
@@ -58,7 +56,6 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
           ) {
             setActiveVerseIndex(i);
             
-            // In karaoke mode, also highlight the current word
             if (isKaraokeMode && hinoGuarapuavaData.verses[i].words) {
               for (let j = 0; j < hinoGuarapuavaData.verses[i].words.length; j++) {
                 const word = hinoGuarapuavaData.verses[i].words[j];
@@ -92,29 +89,28 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
   };
 
   const handleNarration = (verseIndex: number) => {
-    // Logic for narration would go here
     console.log(`Narrating verse ${verseIndex}`);
   };
 
   return (
-    <section id="lyrics" className="py-20 bg-white dark:bg-gray-800">
+    <section id="lyrics" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-emerald-800 dark:text-emerald-300 ${accessibilityMode.largeText ? 'text-4xl md:text-5xl' : ''}`}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-emerald-300 ${accessibilityMode.largeText ? 'text-4xl md:text-5xl' : ''}`}>
             Letra e Música
           </h2>
-          <p className={`text-gray-600 dark:text-gray-300 max-w-2xl mx-auto ${accessibilityMode.largeText ? 'text-xl' : ''}`}>
+          <p className={`text-gray-700 dark:text-gray-300 max-w-2xl mx-auto ${accessibilityMode.largeText ? 'text-xl' : ''}`}>
             Acompanhe a letra do hino enquanto escuta a música, ou cante junto no modo karaokê
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Music Player */}
-          <div className="lg:col-span-1 bg-emerald-50 dark:bg-gray-700 rounded-xl p-6 shadow-md">
-            <h3 className="text-xl font-semibold mb-4 text-emerald-700 dark:text-emerald-300">Player de Música</h3>
+          <div className="lg:col-span-1 bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md">
+            <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-emerald-300">Player de Música</h3>
             
             <div className="mb-8">
-              <div className="relative w-full aspect-video bg-emerald-200 dark:bg-gray-600 rounded-lg mb-4 overflow-hidden">
+              <div className="relative w-full aspect-video bg-gray-100 dark:bg-gray-600 rounded-lg mb-4 overflow-hidden">
                 <YouTube
                   videoId="S5LxOCu5TJY"
                   opts={{
@@ -168,7 +164,7 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
             </div>
             
             <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
-              <h4 className="font-medium mb-2 text-gray-700 dark:text-gray-300">Downloads</h4>
+              <h4 className="font-medium mb-2 text-gray-900 dark:text-gray-300">Downloads</h4>
               <div className="flex flex-col space-y-2">
                 <a 
                   href="#" 
@@ -200,7 +196,7 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
           <div className="lg:col-span-2">
             <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-xl font-semibold text-emerald-700 dark:text-emerald-300">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-emerald-300">
                   {isKaraokeMode ? 'Modo Karaokê' : 'Letra do Hino'}
                 </h3>
                 
@@ -226,7 +222,7 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
                     onClick={() => handleVerseClick(verseIndex)}
                   >
                     {isKaraokeMode && verse.words ? (
-                      <p className="leading-relaxed">
+                      <p className="leading-relaxed text-gray-900 dark:text-gray-200">
                         {verse.words.map((word, wordIndex) => (
                           <span 
                             key={wordIndex}
@@ -241,7 +237,7 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
                         ))}
                       </p>
                     ) : (
-                      <p className="leading-relaxed dark:text-gray-200">{verse.text}</p>
+                      <p className="leading-relaxed text-gray-900 dark:text-gray-200">{verse.text}</p>
                     )}
                     
                     {accessibilityMode.narration && (
