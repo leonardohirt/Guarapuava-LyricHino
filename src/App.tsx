@@ -9,6 +9,7 @@ import QuizSection from './components/QuizSection';
 import TestimonialSection from './components/TestimonialSection';
 import Footer from './components/Footer';
 import AccessibilityBar from './components/AccessibilityBar';
+import AdminLayout from './components/admin/AdminLayout';
 
 function App() {
   const [accessibilityMode, setAccessibilityMode] = useState({
@@ -16,6 +17,13 @@ function App() {
     largeText: false,
     narration: false
   });
+
+  // Check if we're on the admin route
+  const isAdminRoute = window.location.pathname === '/admin';
+
+  if (isAdminRoute) {
+    return <AdminLayout />;
+  }
 
   return (
     <ThemeProvider>
