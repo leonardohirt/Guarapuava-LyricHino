@@ -163,4 +163,18 @@ const Header: React.FC = () => {
                         ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-emerald-600 dark:hover:text-emerald-400'
                         : 'text-white/90 hover:bg-white/10 hover:text-white'
                     }`}
-                    on
+                   onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
