@@ -40,7 +40,7 @@ function App() {
           />
         </div>
         <Header />
-        <main className="pt-16">
+        <main className="pt-[96px]">
           <HeroSection />
           <LyricsSection accessibilityMode={accessibilityMode} />
           <ChildrenSection />
