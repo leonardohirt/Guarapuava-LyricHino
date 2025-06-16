@@ -105,18 +105,18 @@ const QuizSection: React.FC = () => {
   const renderQuizContent = () => {
     if (quizCompleted) {
       return (
-        <div className="bg-gray-700 rounded-xl p-8 shadow-md text-center">
-          <h3 className="text-2xl font-bold mb-6 text-emerald-300">
+        <div className="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-md text-center">
+          <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-emerald-300">
             Quiz Completo!
           </h3>
           
           <div className="mb-8">
-            <div className="inline-block p-4 bg-emerald-900 rounded-full mb-4">
-              <div className="text-4xl font-bold text-emerald-400">
+            <div className="inline-block p-4 bg-emerald-100 dark:bg-emerald-900 rounded-full mb-4">
+              <div className="text-4xl font-bold text-emerald-600 dark:text-emerald-400">
                 {score}/{questions.length}
               </div>
             </div>
-            <p className="text-gray-300 text-lg">
+            <p className="text-gray-700 dark:text-gray-300 text-lg">
               {score === questions.length ? (
                 "Parabéns! Você acertou todas as perguntas!"
               ) : score >= questions.length / 2 ? (
@@ -141,17 +141,17 @@ const QuizSection: React.FC = () => {
     const question = questions[currentQuestion];
     
     return (
-      <div className="bg-gray-700 rounded-xl p-6 md:p-8 shadow-md">
+      <div className="bg-white dark:bg-gray-700 rounded-xl p-6 md:p-8 shadow-md">
         <div className="flex justify-between items-center mb-6">
-          <span className="bg-emerald-900 text-emerald-200 px-3 py-1 rounded-full text-sm font-medium">
+          <span className="bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-3 py-1 rounded-full text-sm font-medium">
             Questão {currentQuestion + 1} de {questions.length}
           </span>
-          <span className="text-gray-400">
+          <span className="text-gray-600 dark:text-gray-400">
             Pontuação: {score}
           </span>
         </div>
         
-        <h3 className="text-xl md:text-2xl font-semibold mb-6 text-white">
+        <h3 className="text-xl md:text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
           {question.text}
         </h3>
         
@@ -164,14 +164,14 @@ const QuizSection: React.FC = () => {
                 selectedOption === index 
                   ? showResult
                     ? index === question.correctAnswer
-                      ? 'border-green-500 bg-green-900/30'
-                      : 'border-red-500 bg-red-900/30'
-                    : 'border-emerald-500 bg-emerald-900/30'
-                  : 'border-gray-600 hover:border-emerald-700'
+                      ? 'border-green-500 bg-green-50 dark:bg-green-900/30'
+                      : 'border-red-500 bg-red-50 dark:bg-red-900/30'
+                    : 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/30'
+                  : 'border-gray-300 dark:border-gray-600 hover:border-emerald-400 dark:hover:border-emerald-500'
               }`}
             >
               <div className="flex items-center">
-                <span className="flex-1 text-gray-200">{option}</span>
+                <span className="flex-1 text-gray-900 dark:text-gray-200">{option}</span>
                 
                 {showResult && index === question.correctAnswer && (
                   <Check size={20} className="text-green-500" />
@@ -191,7 +191,7 @@ const QuizSection: React.FC = () => {
             disabled={selectedOption === null}
             className={`w-full py-3 rounded-lg font-medium transition-colors ${
               selectedOption === null
-                ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                ? 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
                 : 'bg-emerald-600 hover:bg-emerald-700 text-white'
             }`}
           >
@@ -209,7 +209,7 @@ const QuizSection: React.FC = () => {
         <div className="mt-6 text-center">
           <button
             onClick={restartQuiz}
-            className="text-emerald-400 hover:text-emerald-300 text-sm underline"
+            className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 text-sm underline"
           >
             Reiniciar Quiz
           </button>
@@ -219,13 +219,13 @@ const QuizSection: React.FC = () => {
   };
 
   return (
-    <section id="quiz" className="py-20 bg-gray-900">
+    <section id="quiz" className="py-20 bg-gray-100 dark:bg-gray-900">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-emerald-300">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-emerald-300">
             Quiz do Hino
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
             Teste seus conhecimentos sobre o hino de Guarapuava e a história da cidade
           </p>
         </div>
@@ -233,16 +233,16 @@ const QuizSection: React.FC = () => {
         <div className="max-w-3xl mx-auto">
           {renderQuizContent()}
           
-          <div className="mt-10 bg-gray-700 rounded-xl p-6 shadow-md">
+          <div className="mt-10 bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md">
             <div className="flex items-start">
-              <div className="mr-4 mt-1 text-emerald-400">
+              <div className="mr-4 mt-1 text-emerald-600 dark:text-emerald-400">
                 <HelpCircle size={24} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold mb-2 text-white">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
                   Sobre o Quiz
                 </h3>
-                <p className="text-gray-300">
+                <p className="text-gray-700 dark:text-gray-300">
                   Este quiz foi desenvolvido para testar e enriquecer seus conhecimentos sobre o hino de Guarapuava, sua história e significado. As perguntas abrangem detalhes sobre a composição, história da cidade e elementos do hino.
                 </p>
               </div>

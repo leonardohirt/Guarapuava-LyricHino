@@ -7,19 +7,25 @@ html {
 }
 
 body {
-  @apply font-sans text-gray-800;
+  @apply font-sans text-gray-800 dark:text-gray-200;
 }
 
 /* High Contrast Mode */
 .high-contrast {
   --bg-opacity: 1;
-  background-color: #000000;
-  color: #ffffff;
+}
+
+.high-contrast,
+.high-contrast * {
+  background-color: #000000 !important;
+  color: #ffffff !important;
 }
 
 .high-contrast .bg-white,
 .high-contrast .bg-gray-100,
-.high-contrast .bg-emerald-50 {
+.high-contrast .bg-emerald-50,
+.high-contrast .dark\:bg-gray-800,
+.high-contrast .dark\:bg-gray-900 {
   background-color: #000000 !important;
 }
 
@@ -30,13 +36,23 @@ body {
 .high-contrast h4,
 .high-contrast h5,
 .high-contrast h6,
-.high-contrast a:not(.bg-emerald-600):not(.bg-white):not(.bg-yellow-500) {
+.high-contrast span,
+.high-contrast div {
   color: #ffffff !important;
 }
 
-.high-contrast a,
-.high-contrast button {
-  border: 1px solid #ffffff;
+.high-contrast a:not(.bg-emerald-600):not(.bg-white):not(.bg-yellow-500),
+.high-contrast button:not(.bg-emerald-600):not(.bg-white):not(.bg-yellow-500) {
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+}
+
+.high-contrast .bg-emerald-600,
+.high-contrast .bg-emerald-700,
+.high-contrast .bg-emerald-800,
+.high-contrast .bg-emerald-900 {
+  background-color: #059669 !important;
+  color: #ffffff !important;
 }
 
 /* Large Text Mode */
@@ -63,4 +79,9 @@ body {
 .large-text input,
 .large-text textarea {
   font-size: 1.2rem;
+}
+
+/* Dark mode transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

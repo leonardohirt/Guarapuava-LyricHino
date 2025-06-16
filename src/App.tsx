@@ -22,12 +22,16 @@ function App() {
   const isAdminRoute = window.location.pathname === '/admin';
 
   if (isAdminRoute) {
-    return <AdminLayout />;
+    return (
+      <ThemeProvider>
+        <AdminLayout />
+      </ThemeProvider>
+    );
   }
 
   return (
     <ThemeProvider>
-      <div className={`min-h-screen ${accessibilityMode.highContrast ? 'high-contrast' : ''} 
+      <div className={`min-h-screen bg-white dark:bg-gray-900 ${accessibilityMode.highContrast ? 'high-contrast' : ''} 
                       ${accessibilityMode.largeText ? 'large-text' : ''}`}>
         <div className="relative z-50">
           <AccessibilityBar 
