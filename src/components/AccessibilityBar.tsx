@@ -26,7 +26,7 @@ const AccessibilityBar: React.FC<AccessibilityBarProps> = ({ settings, onChange 
   };
 
   return (
-    <div className="bg-gray-800 text-white py-2 z-50 relative">
+    <div className="fixed top-0 w-full bg-gray-800 text-white py-2 z-50">
       <div className="container mx-auto px-4 flex justify-end items-center space-x-4 text-sm">
         <span className="mr-2">Acessibilidade:</span>
         
