@@ -12,18 +12,12 @@ body {
 
 /* High Contrast Mode */
 .high-contrast {
-  --text-color: #000000;
-  --bg-color: #ffffff;
-}
-
-.high-contrast {
   background-color: #ffffff !important;
   color: #000000 !important;
 }
 
 .high-contrast * {
   color: #000000 !important;
-  border-color: #000000 !important;
 }
 
 .high-contrast p,
@@ -35,56 +29,98 @@ body {
 .high-contrast h6,
 .high-contrast span,
 .high-contrast li,
-.high-contrast label {
+.high-contrast label,
+.high-contrast div,
+.high-contrast section {
   color: #000000 !important;
 }
 
 .high-contrast button {
+  background-color: #000000 !important;
+  color: #ffffff !important;
   border: 2px solid #000000 !important;
-  color: #000000 !important;
 }
 
 .high-contrast button:hover {
-  background-color: #f0f0f0 !important;
+  background-color: #333333 !important;
+  color: #ffffff !important;
 }
 
 .high-contrast a {
   color: #0000ff !important;
   text-decoration: underline !important;
-  border: none !important;
 }
 
 .high-contrast .bg-white,
-.high-contrast .dark\:bg-gray-800,
-.high-contrast .dark\:bg-gray-900,
 .high-contrast .bg-gray-50,
-.high-contrast .bg-gray-100 {
+.high-contrast .bg-gray-100,
+.high-contrast .bg-emerald-50,
+.high-contrast .dark\:bg-gray-800,
+.high-contrast .dark\:bg-gray-900 {
   background-color: #ffffff !important;
+}
+
+.high-contrast .bg-gray-800,
+.high-contrast .bg-gray-700,
+.high-contrast .dark\:bg-gray-700 {
+  background-color: #ffffff !important;
+  border: 2px solid #000000;
 }
 
 .high-contrast .bg-emerald-600,
 .high-contrast .bg-emerald-700,
 .high-contrast .bg-emerald-800,
 .high-contrast .bg-emerald-900,
-.high-contrast .bg-green-600 {
+.high-contrast .bg-green-600,
+.high-contrast .bg-green-700 {
   background-color: #000000 !important;
   color: #ffffff !important;
-  border: 2px solid #000000 !important;
 }
 
+.high-contrast .hover\:bg-emerald-700:hover,
+.high-contrast .hover\:bg-emerald-600:hover,
+.high-contrast .hover\:bg-green-700:hover,
+.high-contrast .hover\:bg-green-600:hover,
 .high-contrast .bg-emerald-600:hover,
 .high-contrast .bg-emerald-700:hover,
 .high-contrast .bg-emerald-800:hover,
 .high-contrast .bg-emerald-900:hover,
-.high-contrast .bg-green-600:hover {
+.high-contrast .bg-green-600:hover,
+.high-contrast .bg-green-700:hover {
   background-color: #333333 !important;
+  color: #ffffff !important;
 }
 
 .high-contrast input,
-.high-contrast textarea {
+.high-contrast textarea,
+.high-contrast select {
   background-color: #ffffff !important;
   color: #000000 !important;
   border: 2px solid #000000 !important;
+}
+
+.high-contrast input::placeholder,
+.high-contrast textarea::placeholder {
+  color: #666666 !important;
+}
+
+.high-contrast .dark\:text-gray-200,
+.high-contrast .dark\:text-gray-300,
+.high-contrast .text-gray-600,
+.high-contrast .text-gray-700 {
+  color: #000000 !important;
+}
+
+.high-contrast .border-gray-200,
+.high-contrast .border-gray-300,
+.high-contrast .border-gray-600 {
+  border-color: #000000 !important;
+}
+
+.high-contrast .bg-gray-200,
+.high-contrast .bg-gray-300,
+.high-contrast .dark\:bg-gray-600 {
+  background-color: #f5f5f5 !important;
 }
 
 /* Large Text Mode */

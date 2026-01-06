@@ -6,7 +6,6 @@ import LyricsSection from './components/LyricsSection';
 import ChildrenSection from './components/ChildrenSection';
 import HistorySection from './components/HistorySection';
 import QuizSection from './components/QuizSection';
-import TestimonialSection from './components/TestimonialSection';
 import Footer from './components/Footer';
 import AccessibilityBar from './components/AccessibilityBar';
 import AdminLayout from './components/admin/AdminLayout';
@@ -28,7 +27,6 @@ function App() {
     localStorage.setItem('accessibilityMode', JSON.stringify(accessibilityMode));
   }, [accessibilityMode]);
 
-  // Check if we're on the admin route
   const isAdminRoute = window.location.pathname === '/admin';
 
   if (isAdminRoute) {
@@ -56,7 +54,6 @@ function App() {
           <ChildrenSection />
           <HistorySection />
           <QuizSection />
-          <TestimonialSection />
         </main>
         <Footer />
       </div>

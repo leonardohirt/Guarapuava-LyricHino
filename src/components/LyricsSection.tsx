@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { PlayCircle, PauseCircle, Music, Mic, Download, Volume2 } from 'lucide-react';
+import { PlayCircle, PauseCircle, Music, Mic, Download } from 'lucide-react';
 import { hinoGuarapuavaData } from '../data/hinoData';
 import YouTube from 'react-youtube';
 
@@ -49,15 +49,15 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
       interval = setInterval(() => {
         const time = player.getCurrentTime();
         setCurrentTime(time);
-        
+
         // Update active verse based on current time
         for (let i = 0; i < hinoGuarapuavaData.verses.length; i++) {
           if (
-            time >= hinoGuarapuavaData.verses[i].startTime && 
+            time >= hinoGuarapuavaData.verses[i].startTime &&
             time < (hinoGuarapuavaData.verses[i].endTime || Number.MAX_VALUE)
           ) {
             setActiveVerseIndex(i);
-            
+
             // In karaoke mode, also highlight the current word
             if (isKaraokeMode && hinoGuarapuavaData.verses[i].words) {
               for (let j = 0; j < hinoGuarapuavaData.verses[i].words.length; j++) {
@@ -71,7 +71,7 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
             break;
           }
         }
-      }, 100);
+      }, 50);
     }
 
     return () => {
@@ -89,11 +89,6 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
         setIsPlaying(true);
       }
     }
-  };
-
-  const handleNarration = (verseIndex: number) => {
-    // Logic for narration would go here
-    console.log(`Narrating verse ${verseIndex}`);
   };
 
   return (
@@ -154,45 +149,29 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
                 </button>
               </div>
               
-              <div className="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+              <div className="flex justify-between text-sm text-gray-600 dark:text-gray-300 mb-2">
                 <span>{Math.floor(currentTime / 60)}:{Math.floor(currentTime % 60).toString().padStart(2, '0')}</span>
                 <span>2:17</span>
               </div>
-              
-              <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2 mb-6">
-                <div 
-                  className="bg-emerald-600 h-2 rounded-full" 
+
+              <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2 mb-4">
+                <div
+                  className="bg-emerald-600 h-2 rounded-full transition-all"
                   style={{ width: `${(currentTime / 137) * 100}%` }}
                 ></div>
               </div>
             </div>
             
             <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
-              <h4 className="font-medium mb-2 text-gray-700 dark:text-gray-300">Downloads</h4>
-              <div className="flex flex-col space-y-2">
-                <a 
-                  href="#" 
-                  className="flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-                >
-                  <Download size={16} className="mr-2" />
-                  <span>Baixar MP3</span>
-                </a>
-                <a 
-                  href="/hino-guarapuava.pdf" 
-                  download="hino-guarapuava.pdf"
-                  className="flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-                >
-                  <Download size={16} className="mr-2" />
-                  <span>Baixar letra (PDF)</span>
-                </a>
-                <a 
-                  href="#" 
-                  className="flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-                >
-                  <Download size={16} className="mr-2" />
-                  <span>Baixar partitura</span>
-                </a>
-              </div>
+              <h4 className="font-medium mb-2 text-gray-700 dark:text-gray-300">Download</h4>
+              <a
+                href="/hino-guarapuava.pdf"
+                download="hino-guarapuava.pdf"
+                className="flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
+              >
+                <Download size={16} className="mr-2" />
+                <span>Baixar letra (PDF)</span>
+              </a>
             </div>
           </div>
           
@@ -203,15 +182,6 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
                 <h3 className="text-xl font-semibold text-emerald-700 dark:text-emerald-300">
                   {isKaraokeMode ? 'Modo Karaokê' : 'Letra do Hino'}
                 </h3>
-                
-                {accessibilityMode.narration && (
-                  <button 
-                    className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
-                    aria-label="Narrar letra"
-                  >
-                    <Volume2 size={20} />
-                  </button>
-                )}
               </div>
               
               <div className={`space-y-6 ${accessibilityMode.largeText ? 'text-xl' : ''}`}>
@@ -242,19 +212,6 @@ const LyricsSection: React.FC<LyricsSectionProps> = ({ accessibilityMode }) => {
                       </p>
                     ) : (
                       <p className="leading-relaxed dark:text-gray-200">{verse.text}</p>
-                    )}
-                    
-                    {accessibilityMode.narration && (
-                      <button 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleNarration(verseIndex);
-                        }}
-                        className="mt-2 text-sm text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 flex items-center"
-                      >
-                        <Volume2 size={14} className="mr-1" />
-                        <span>Narrar este verso</span>
-                      </button>
                     )}
                   </div>
                 ))}
