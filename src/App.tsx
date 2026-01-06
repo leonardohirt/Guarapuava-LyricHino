@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
@@ -12,11 +12,21 @@ import AccessibilityBar from './components/AccessibilityBar';
 import AdminLayout from './components/admin/AdminLayout';
 
 function App() {
-  const [accessibilityMode, setAccessibilityMode] = useState({
-    highContrast: false,
-    largeText: false,
-    narration: false
+  const [accessibilityMode, setAccessibilityMode] = useState(() => {
+    const saved = localStorage.getItem('accessibilityMode');
+    if (saved) {
+      return JSON.parse(saved);
+    }
+    return {
+      highContrast: false,
+      largeText: false,
+      narration: false
+    };
   });
+
+  useEffect(() => {
+    localStorage.setItem('accessibilityMode', JSON.stringify(accessibilityMode));
+  }, [accessibilityMode]);
 
   // Check if we're on the admin route
   const isAdminRoute = window.location.pathname === '/admin';
@@ -31,12 +41,12 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className={`min-h-screen bg-white dark:bg-gray-900 ${accessibilityMode.highContrast ? 'high-contrast' : ''} 
+      <div className={`min-h-screen bg-white dark:bg-gray-900 ${accessibilityMode.highContrast ? 'high-contrast' : ''}
                       ${accessibilityMode.largeText ? 'large-text' : ''}`}>
         <div className="relative z-50">
-          <AccessibilityBar 
-            settings={accessibilityMode} 
-            onChange={setAccessibilityMode} 
+          <AccessibilityBar
+            settings={accessibilityMode}
+            onChange={setAccessibilityMode}
           />
         </div>
         <Header />
